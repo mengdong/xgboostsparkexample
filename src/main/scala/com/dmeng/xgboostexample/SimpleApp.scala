@@ -48,7 +48,7 @@ object SimpleApp extends Serializable{
         // val param1 = "sample content of param1"
         printf(s"Run the regression model with XGBoost: ......")
         val training = spark.read.format("libsvm")
-            .load("data/sample_linear_regression_data.txt")
+            .load("maprfs:///user/dmeng/data/sample_linear_regression_data.txt")
         val paramMap = List(
             "eta" -> 0.02,
             "max_depth" -> 8,
@@ -81,7 +81,7 @@ object SimpleApp extends Serializable{
             "max_depth" -> 8,
             "objective" -> "binary:logistic").toMap
         val training2 = spark.read.format("libsvm")
-            .load("data/sample_libsvm_data.txt")
+            .load("maprfs:///user/dmeng/data/sample_libsvm_data.txt")
         val xgb2 = new XGBoostEstimator(paramMap2)
         val pipeline2 = new Pipeline()
             .setStages(Array(xgb2))
@@ -104,7 +104,7 @@ object SimpleApp extends Serializable{
         predictions2.show
 
         val training3 = spark.read.format("libsvm")
-            .load("data/sample_multiclass_classification_data.txt")
+            .load("maprfs:///user/dmeng/data/sample_multiclass_classification_data.txt")
         printf(s"Run the classification model with XGBoost")
         val paramMap3 = List(
             "eta" -> 0.02,

@@ -25,6 +25,6 @@
 #fi
 DIR="$( cd "$( dirname "${BATH_SOURCE[0]}" )" && pwd )"
 
-spark-submit --master local[2] --driver-memory 3g \
-    --class "com.dmeng.xgboostexample.SimpleApp" ${DIR}/target/scala-2.11/xgboost4j-assembly-0.1.0.jar \
+/opt/mapr/spark/spark-2.1.0/bin/spark-submit --master yarn --deploy-mode client --driver-memory 3g \
+    --class "com.dmeng.xgboostexample.SimpleApp" ${DIR}/target/scala-2.11/xgboostsparkexample-assembly-0.1.0.jar \
     --param1 "content of this param" 

@@ -13,7 +13,7 @@ scalaVersion := "2.11.8"
 
 crossScalaVersions := Seq("2.10.5", "2.11.8")
 
-sparkVersion := "2.0.1"
+sparkVersion := "2.1.0"
 
 sparkComponents ++= Seq("mllib", "sql", "core", "graphx", "streaming")
 
